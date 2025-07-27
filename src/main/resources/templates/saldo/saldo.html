@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Saldo</title>
+</head>
+<body>
+<h1>Saldo Atual</h1>
+<p>O saldo atual é: <strong th:text="${saldo} + ' €'"></strong></p>
+
+<a th:href="@{/}">Voltar</a>
+</body>
+</html>

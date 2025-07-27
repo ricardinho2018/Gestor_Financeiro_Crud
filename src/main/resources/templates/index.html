@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestor Financeiro - Resumo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        .saldo { font-size: 1.5em; margin-bottom: 1em; }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #2a7ae2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Gestor Financeiro</h1>
+
+<div class="saldo">
+    Saldo atual:
+    <span th:text="${saldo}">0.00</span> €
+</div>
+
+<nav>
+    <a th:href="@{/categorias}">Categorias</a>
+    <a th:href="@{/receitas}">Receitas</a>
+    <a th:href="@{/despesas}">Despesas</a>
+</nav>
+
+</body>
+</html>

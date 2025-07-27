@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Despesas</title>
+</head>
+<body>
+<h1>Despesas</h1>
+<a th:href="@{/despesas/nova}">Nova Despesa</a>
+<table>
+    <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Categoria</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="despesa : ${despesas}">
+        <td th:text="${despesa.descricao}"></td>
+        <td th:text="${despesa.valor}"></td>
+        <td th:text="${despesa.data}"></td>
+        <td th:text="${despesa.categoria.nome}"></td>
+        <td>
+            <a th:href="@{'/despesas/editar/' + ${despesa.id}}">Editar</a>
+            <a th:href="@{'/despesas/eliminar/' + ${despesa.id}}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

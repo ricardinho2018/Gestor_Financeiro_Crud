@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nova Receita</title>
+</head>
+<body>
+<h1>Nova Receita</h1>
+<form th:action="@{/receitas}" method="post" th:object="${receita}">
+    <label>Descrição:</label>
+    <input type="text" th:field="*{descricao}" required /><br/>
+
+    <label>Valor:</label>
+    <input type="number" step="0.01" th:field="*{valor}" required /><br/>
+
+    <label>Data:</label>
+    <input type="date" th:field="*{data}" required /><br/>
+
+    <label>Categoria:</label>
+    <select th:field="*{categoria}" required>
+        <option th:each="cat : ${categorias}" th:value="${cat.id}" th:text="${cat.nome}"></option>
+    </select><br/>
+
+    <button type="submit">Guardar Receita</button>
+</form>
+<a th:href="@{/receitas}">Voltar à Lista</a>
+</body>
+</html>

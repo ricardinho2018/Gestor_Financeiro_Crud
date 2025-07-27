@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nova Despesa</title>
+</head>
+<body>
+<h1>Nova Despesa</h1>
+<form th:action="@{/despesas}" method="post" th:object="${despesa}">
+    <label>Descrição:</label>
+    <input type="text" th:field="*{descricao}" /><br/>
+    <label>Valor:</label>
+    <input type="number" th:field="*{valor}" step="0.01" /><br/>
+    <label>Data:</label>
+    <input type="date" th:field="*{data}" /><br/>
+    <label>Categoria:</label>
+    <select th:field="*{categoria}">
+        <option th:each="cat : ${categorias}" th:value="${cat.id}" th:text="${cat.nome}"></option>
+    </select><br/>
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
